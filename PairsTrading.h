@@ -32,7 +32,7 @@ class PairsTrading {
         ~PairsTrading();
         int getState(); // not used
         void start();
-        float getDecision(); // not used
+        double getDecision(); // not used
 
     private:
         // s1 and s2 form an algorithmic trading pair
@@ -40,10 +40,10 @@ class PairsTrading {
 
         // store info for each stock
         struct StockInfo {
-            float initialEMA; // at start of state 1
-            float currentEMA;
-            float percentChange;
-            float EMAatDivergence;
+            double initialEMA; // at start of state 1
+            double currentEMA;
+            double percentChange;
+            double EMAatDivergence;
         };
 
         StockInfo s1Data, s2Data;
@@ -52,7 +52,7 @@ class PairsTrading {
         int correlatedCount; // seconds we've been correlated
         int divergedCount; // seconds we've been diverged
 
-        float EMAdifference; // current EMA difference (%)
+        double EMAdifference; // current EMA difference (%)
 
         void calculateDiff();
         void State1();
